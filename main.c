@@ -68,14 +68,14 @@ typedef struct
     list_element header;
     int value;
     
-} apple;
+} item;
 
 int main()
 {
     list items;
-    apple * a = (apple *) malloc(sizeof(apple));
-    apple * b = (apple *) malloc(sizeof(apple));
-    apple * c = (apple *) malloc(sizeof(apple));
+    item * a = (item *) malloc(sizeof(item));
+    item * b = (item *) malloc(sizeof(item));
+    item * c = (item *) malloc(sizeof(item));
     
     a->value = 1;
     b->value = 2;
@@ -89,14 +89,14 @@ int main()
     
     printf("empty %d\n", list_empty(&items));
     
-    for (a = (apple *) list_begin(&items); a; a = (apple *) list_next(&a->header))
+    for (a = (item *) list_begin(&items); a; a = (item *) list_next(&a->header))
     {
         printf("%d\n", a->value);
     }
     
     while (!list_empty(&items))
     {
-        a = (apple *) list_pop_front(&items);
+        a = (item *) list_pop_front(&items);
         printf("%d\n", a->value);
         printf("empty %d\n", list_empty(&items));
         free(a);
